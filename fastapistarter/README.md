@@ -14,12 +14,15 @@ Starting with 3 local sqlite DBs via aiosqlite-connector. (development, testing,
 - prod-ready folder structure
 - Dockerfile
 
+## Important
+- a real PW Hashing function is missing: this is just for demonstational purposes!!
+
 ## Installation
 - uv sync
 - rename example.env to .env and add external DB credentials and API-Key (optional)
 - For Production you should at least switch the corresponding production-DB to mySQL (uv add aiomysql) or Postgres (uv add asyncpg).
-- you might need: httpx (uv add httpx) - if you want to use the TestClient.
 
 ## TODO
 
+- implement a basic test suite
 - add alembic
