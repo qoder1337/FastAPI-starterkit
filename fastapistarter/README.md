@@ -5,7 +5,7 @@ Debloated 3-Environment Setup with async sqlalchemy integration.
 ENV-management with the handy pydantic-settings package.
 Starting with 3 local sqlite DBs via aiosqlite-connector. (development, testing, production)
 
-## Whats in it?
+## What's in it?
 
 - 3 Stages / ENVIRONMENTs: development, testing, production
 - real async DB-logic with sqlalchemy
