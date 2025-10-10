@@ -15,7 +15,7 @@ Starting with 3 local sqlite DBs via aiosqlite-connector. (development, testing,
 - Dockerfile
 
 ## Important
-- a real PW Hashing function is missing: this is just for demonstational purposes!!
+- a real PW Hashing function is missing: this is just for demonstrational purposes!!
 
 ## Installation
 - uv sync
