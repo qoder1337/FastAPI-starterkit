@@ -1,9 +1,5 @@
 import os
-from pydantic_settings import BaseSettings
-from dotenv import load_dotenv
-
-load_dotenv()
-
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BASEDIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 APPDIR = os.path.abspath(os.path.dirname(__file__))
@@ -17,9 +13,11 @@ class AppSettings(BaseSettings):
     DEBUG: bool
     RELOAD: bool
 
-    class Config:
-        env_file = os.path.join(BASEDIR, ".env")
-        env_file_encoding = "utf-8"
+    model_config = SettingsConfigDict(
+        env_file=os.path.join(BASEDIR, ".env"),
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 
 class ProductionConfig(AppSettings):
