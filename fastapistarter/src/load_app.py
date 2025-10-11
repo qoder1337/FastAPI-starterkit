@@ -47,8 +47,8 @@ async def lifespan(app: FastAPI):
     # close DB Sessions
     if sessionmanager_local._engine is not None:
         await sessionmanager_local.close()
-    if sessionmanager_external._engine is not None:
-        await sessionmanager_external.close()
+    # if sessionmanager_external._engine is not None:
+    #     await sessionmanager_external.close()
 
 
 ### APP INIT
