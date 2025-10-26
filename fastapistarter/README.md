@@ -1,10 +1,10 @@
 # FastAPI Starter (async)
 
-A work in progress Starter Kit for async FastAPI without the fluff.
+A basic Starter Kit for async FastAPI - without the fluff.
 Debloated 3-Environment Setup with async sqlalchemy integration.
 ENV-management with the handy pydantic-settings package.
 Starting with 3 local sqlite DBs via aiosqlite-connector. (development, testing, production).
-The template follows common best-practices and is an optimal debloated starting point.
+The template follows common best-practices and is an optimal starting point.
 
 ## What's in it?
 
