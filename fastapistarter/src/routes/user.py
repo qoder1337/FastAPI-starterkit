@@ -28,7 +28,7 @@ async def get_user(user_id: int, db: DBSessionDep_local):
     user = await user_crud.get_user(db, user_id=user_id)
     if not user:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="User nicht gefunden"
+            status_code=status.HTTP_404_NOT_FOUND, detail="User not found"
         )
     return user
 
@@ -46,7 +46,7 @@ async def update_user(user_id: int, user_update: UserUpdate, db: DBSessionDep_lo
     user = await user_crud.get_user(db, user_id=user_id)
     if not user:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="User nicht gefunden"
+            status_code=status.HTTP_404_NOT_FOUND, detail="User not found"
         )
 
     updated_user = await user_crud.update_user(
