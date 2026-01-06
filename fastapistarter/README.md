@@ -31,7 +31,7 @@ Prerequisite: [uv](https://github.com/astral-sh/uv)
 - in your .env file: set your environment to development (default) or production
 - start your api via
 ```bash
-uv ru` python main.py
+uv run python main.py
 ```
 or directly
 ```bash
