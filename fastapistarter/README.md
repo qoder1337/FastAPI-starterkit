@@ -32,7 +32,9 @@ Prerequisite: [uv](https://github.com/astral-sh/uv)
 - start your api via
 ```bash
 uv ru` python main.py
-# or directly
+```
+or directly
+```bash
 uv run fastapi dev src/main.py
 ```
 
