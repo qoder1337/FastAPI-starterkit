@@ -5,6 +5,15 @@ BASEDIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 APPDIR = os.path.abspath(os.path.dirname(__file__))
 
 
+class EnvLoader(BaseSettings):
+    APP_ENV: str = "development"  # Fallback
+
+    model_config = SettingsConfigDict(
+        env_file=os.path.join(BASEDIR, ".env"),
+        extra="ignore",  # Ignoriere alles andere in der .env Datei
+    )
+
+
 class AppSettings(BaseSettings):
     APP_ENV: str
     APP_NAME: str
@@ -12,6 +21,7 @@ class AppSettings(BaseSettings):
     # PRIVATE_API_KEY: str
     DEBUG: bool
     RELOAD: bool
+    LOG_LEVEL: str = "INFO"  # Default
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(BASEDIR, ".env"),
@@ -47,6 +57,7 @@ class TestingConfig(AppSettings):
     # EXT_DB: str = os.getenv("EXT_DB")
     DEBUG: bool = True
     RELOAD: bool = True
+    LOG_LEVEL: str = "WARNING"  # dont spam testresults
     APP_NAME: str = "Starter for FastAPI (Testing)"
 
 
@@ -56,7 +67,9 @@ config_setting = {
     "production": ProductionConfig,
 }
 
-choose_setting = os.getenv("APP_ENV", "development")
+# choose_setting = os.getenv("APP_ENV", "development")
+
+choose_setting = EnvLoader().APP_ENV
 SET_CONF = config_setting[choose_setting]()
 
 
