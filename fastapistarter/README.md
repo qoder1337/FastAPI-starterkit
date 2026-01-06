@@ -49,3 +49,6 @@ The setup automatically switches to a temporary test.db and prevents data loss i
 ## TODO
 
 - add alembic
+
+## FIXES
+- correct initial loading of the desired environment via `EnvLoader` class
