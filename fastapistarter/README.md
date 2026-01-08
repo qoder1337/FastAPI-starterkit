@@ -27,6 +27,7 @@ The template follows common best-practices and is an optimal starting point.
 Prerequisite: [uv](https://github.com/astral-sh/uv)
 - `uv sync`
 - rename example.env to .env and add external DB credentials and API-Key (optional)
+- Setup Database with `uv run alembic upgrade head`
 - For Production you should at least switch the corresponding production-DB to mySQL (`uv add aiomysql`) or Postgres (`uv add asyncpg`)
 
 ## USAGE
@@ -48,9 +49,18 @@ The setup automatically switches to a temporary test.db and prevents data loss i
 - for testing simply type `pytest -v` or `pytest -vv -rA` (more details) in your project root
 - or use with uv (`uv run pytest -v` or `uv run pytest -vv -rA`)
 
-## TODO
+## Database Migrations (Alembic)
 
-- add alembic
+To apply changes to your database schema:
+
+1. Modify your models in `src/database/models/`
+2. Generate a migration script:
+   ```bash
+   uv run alembic revision --autogenerate -m "Added age field"
+
 
 ## FIXES
 - correct initial loading of the desired environment via `EnvLoader` class
+
+## TODO
+- maybe switch to sqlalchemy 2.0 syntax soon. i.e. username: Mapped[str] = mapped_column(String(100), unique=True, index=True)

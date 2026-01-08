@@ -1,2 +1,3 @@
 fastapistarter/src/database/db/production.db
 fastapistarter/src/database/db/test.db
+fastapistarter/src/database/db/development.db
