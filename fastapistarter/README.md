@@ -10,8 +10,10 @@ The template follows common best-practices and is an optimal starting point.
 
 - 3 Stages / ENVIRONMENTs: development, testing, production
 - FastAPI with GZipMiddleware
+- pydantic & pydantic-settings
 - SQLite (async sqlite-Connector "aiosqlite")
 - real async DB-logic with sqlalchemy
+- alembic for easy db-migrations
 - uvicorn with uvloop (faster async)
 - logging (updated and with new metaclass approach)
 - prod-ready folder structure
