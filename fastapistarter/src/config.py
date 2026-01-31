@@ -10,18 +10,21 @@ class EnvLoader(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(BASEDIR, ".env"),
-        extra="ignore",  # Ignoriere alles andere in der .env Datei
+        extra="ignore",  # Ignore everything else in .env
     )
 
 
 class AppSettings(BaseSettings):
     APP_ENV: str
     APP_NAME: str
+    DOCS_URL: str | None = "/docs"
+    REDOC_URL: str | None = "/redoc"
+    OPENAPI_URL: str | None = "/openapi.json"
     # EXT_DB: str
     # PRIVATE_API_KEY: str
     DEBUG: bool
     RELOAD: bool
-    LOG_LEVEL: str = "INFO"  # Default
+    LOG_LEVEL: str = "INFO"
 
     model_config = SettingsConfigDict(
         env_file=os.path.join(BASEDIR, ".env"),
@@ -34,6 +37,9 @@ class ProductionConfig(AppSettings):
     SQLALCHEMY_DATABASE_URI: str = "sqlite+aiosqlite:///" + os.path.join(
         APPDIR, "database", "db", "production.db"
     )
+    DOCS_URL: None = None
+    REDOC_URL: None = None
+    OPENAPI_URL: None = None
     # EXT_DB: str = os.getenv("EXT_DB")
     DEBUG: bool = False
     RELOAD: bool = False

@@ -8,6 +8,7 @@ from src.database import (
     # sessionmanager_external,
     Base,
 )
+from src.config import SET_CONF
 from src.routes.base import base_route
 from src.routes.user import user_route
 from zoneinfo import ZoneInfo
@@ -52,7 +53,12 @@ async def lifespan(app: FastAPI):
 
 
 ### APP INIT
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(
+    lifespan=lifespan,
+    docs_url=SET_CONF.DOCS_URL,
+    redoc_url=SET_CONF.REDOC_URL,
+    openapi_url=SET_CONF.OPENAPI_URL,
+)
 
 
 ### MIDDLEWARE

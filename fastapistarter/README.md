@@ -59,8 +59,9 @@ To apply changes to your database schema:
    uv run alembic revision --autogenerate -m "Added age field"
 
 
-## FIXES
+## FIXES / ADDITIONS
 - correct initial loading of the desired environment via `EnvLoader` class
+- added functionality for hidden docs in production
 
 ## TODO
 - maybe switch to sqlalchemy 2.0 syntax soon. i.e. username: Mapped[str] = mapped_column(String(100), unique=True, index=True)
